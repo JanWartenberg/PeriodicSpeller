@@ -1,0 +1,15 @@
+    <div id="word-spelling">
+        {% if res|is_list %}
+            {% for element in res %}
+            <div class="element">
+				<div class="number">{{ element.number }}</div>
+				<div class="symbol">{{ element.symbol }}</div>
+				<div class="name">{{ element.name }}</div>
+            </div>
+            {% endfor %}
+        {% elif res|is_str %}
+        <strong>{{ res }}</strong>
+        {% else %}
+        Kann mit Resultat nichts anfangen, müsste Programmierfehler sein.
+        {% endif %}
+    </div>

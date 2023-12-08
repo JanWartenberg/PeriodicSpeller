@@ -9,9 +9,10 @@
 
 <body hx-boost="true">
 <section>
-    <form>
+    <form hx-on::after-request="this.reset()">
         Word: <input type="text" id="enter-word" name="enterWord"/>
-        <button type="submit" id="spell-btn" hx-post="/spell" hx-target="#word-spelling">
+        <button type="submit" id="spell-btn" hx-post="/spell" hx-target="#word-spelling"
+                hx-swap="outerHTML">
             spell
         </button>
     </form>
@@ -20,8 +21,7 @@
 <div class="gradient"></div>
 
 <section>
-    <div id="word-spelling">
-    </div>
+    {% include 'spelled_word.html' %}
 </section>
 
 </body>
